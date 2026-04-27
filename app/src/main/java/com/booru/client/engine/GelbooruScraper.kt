@@ -5,7 +5,6 @@ import android.content.Context
 import android.os.Handler
 import android.os.Looper
 import android.webkit.CookieManager
-import android.webkit.JavascriptResult
 import android.webkit.WebResourceRequest
 import android.webkit.WebView
 import android.webkit.WebViewClient
@@ -34,7 +33,7 @@ class GelbooruScraper(private val context: Context) {
         private const val PAGE_PARAM = "&pid="
 
         /** JS: Toggle hidden content (gore/hidden tags) */
-        private const val JS_TOGGLE_HIDDEN = """
+        private val JS_TOGGLE_HIDDEN = """
             (function() {
                 try {
                     var btn = document.querySelector('#confirm-shown, .sidebar-shown, button[onclick*="hidden"], a[href*="shown"]');
@@ -48,7 +47,7 @@ class GelbooruScraper(private val context: Context) {
         """.trimIndent()
 
         /** JS: Parse post list DOM and return JSON array */
-        private const val JS_PARSE_POSTS = """
+        private val JS_PARSE_POSTS = """
             (function() {
                 try {
                     var posts = [];
