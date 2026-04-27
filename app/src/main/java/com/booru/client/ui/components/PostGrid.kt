@@ -62,9 +62,7 @@ fun PostGrid(
         ) { post ->
             PostCard(
                 post = post,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .animateItem(),
+                modifier = Modifier.fillMaxWidth(),
                 onClick = { onPostClick(post) }
             )
         }
